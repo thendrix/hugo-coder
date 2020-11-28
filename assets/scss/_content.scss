@@ -103,14 +103,23 @@
         &:focus {
           color: $link-color
         }
+        // @hxgames-begin thendrix
+        text-align: left;
+        padding: 0 0 12px 0;
+        border-bottom: 1px grey dashed;
+        // @hxgames-end
       }
     }
   }
   ul:not(.pagination) {
     li {
+      // @hxgames-begin thendrix - Custom style for all lists
+      display: flex;
       @media only screen and (min-width : 768.1px) {
-        display: flex;
+        //display: flex;
+        padding: 0.5em 0;
       }
+		// @hxgames-end
     }
   }
 }
@@ -181,3 +190,19 @@
     }
   }
 }
+
+
+// @hxgames-begin thendrix - Custom post listing style
+.post-year {
+  text-align: left;
+  padding-top: 6px;
+  margin-right: 1.8em;
+  font-size: 2.2em;
+  border-bottom: 1px grey solid;
+}
+
+.post-day {
+  width: 5.0em;
+}
+// @hxgames-end
+

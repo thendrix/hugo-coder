@@ -1,3 +1,14 @@
+<!-- thendrix custom latest posts-->
+<!-- <div class="latest-posts">
+  Latest blog posts
+   {{ range (.Paginator 5).Pages }}
+      <div>
+        <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+      </div>
+    {{ end }}
+</div>
+ -->
+
 <section class="container centered">
   <div class="about">
     {{ if and (isset .Site.Params "avatarurl") (not (isset .Site.Params "gravatar")) }}

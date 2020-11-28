@@ -5,12 +5,45 @@
   <section class="container list">
     <h1 class="title"> {{ title (i18n (lower .Title)) | default .Title }} </h1>
     {{ .Content }}
+
+    <!-- thendrix, Disable old theme Posts list and replace with custom -->
+    <!--
     <ul>
       {{- range .Paginator.Pages -}}
         {{- .Render "li" -}}
       {{- end -}}
     </ul>
+    -->
 
-    {{ partial "pagination.html" . }}
+  <!-- Custom listing for posts -->
+  {{- range .Data.Pages.GroupByDate "2006" }}
+    <div>
+     <!-- class="posts-group"> -->
+       <div class="post-year">{{ .Key }}</div>
+
+       <ul>
+       <!-- <ul class="posts-list"> -->
+          {{- range .Pages }}
+           <li>
+              <span class="post-day">
+                {{ if .Site.Params.dateformShort }}
+                   {{ .Date.Format .Site.Params.dateformShort }}
+                {{ else }}
+                   {{ .Date.Format "Jan 2"}}
+                {{ end }}
+              </span>
+
+              <!-- <span style="padding-right: 2em"></span> -->
+
+              <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+
+           </li>
+          {{- end }}
+       </ul>
+    </div>
+  {{- end }}
+
+  <!-- Disable while using 'scrolling' theme -->
+    <!-- {{ partial "pagination.html" . }} -->
   </section>
 {{ end }}

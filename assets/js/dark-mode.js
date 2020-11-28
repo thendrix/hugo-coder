@@ -26,3 +26,12 @@ function setTheme(theme) {
   body.classList.remove('colorscheme-' + inverse);
   body.classList.add('colorscheme-' + theme);
 }
+
+
+// @hxgames-begin thendrix Add custom jump to top button like seen in fuji theme
+const scrollTopClick = document.getElementById('scroll-top-click');
+
+scrollTopClick.addEventListener('click', () => {
+  document.documentElement.scrollTop = 0;
+});
+// @hxgames-end
